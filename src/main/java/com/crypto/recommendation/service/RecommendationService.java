@@ -40,7 +40,7 @@ public class RecommendationService {
 
     /**
      * Load all supported Cryptos from CSV files
-     * @throws IOException
+     *
      */
     @PostConstruct
     @SneakyThrows
@@ -70,12 +70,12 @@ public class RecommendationService {
         return cryptoStats;
     }
 
-    public CryptoStats specificCryptoStats(String crypto){
+    public CryptoStats getSpecificCryptoStats(String crypto){
         checkIfCryptoIsSupported(crypto);
         return cryptoStatsMap.get(crypto.toUpperCase());
     }
 
-    public List<String> normalizedCryptosDescending(){
+    public List<String> getNormalizedCryptosListDescending(){
         return calculateNormalizedCryptosRangeDescending(cryptoStatsMap);
     }
 

@@ -29,7 +29,7 @@ public class RecommendationController {
     @Operation(summary = "Get list of all Cryptos sorted by Normalized Range Descending.")
     @GetMapping("normalizedCryptosDescending")
     public ResponseEntity<List<String>> normalizedCryptosDescending(){
-        return ResponseEntity.ok(recommendationService.normalizedCryptosDescending());
+        return ResponseEntity.ok(recommendationService.getNormalizedCryptosListDescending());
     }
 
     @Operation(summary = "Get Stats (oldest/newest/min/max values) for specific Crypto.")
@@ -41,7 +41,7 @@ public class RecommendationController {
                     content = @Content) })
     @GetMapping("cryptoStats/{crypto}")
     public ResponseEntity<CryptoStats> specificCryptoStats(@PathVariable String crypto){
-        return ResponseEntity.ok(recommendationService.specificCryptoStats(crypto));
+        return ResponseEntity.ok(recommendationService.getSpecificCryptoStats(crypto));
     }
 
     @Operation(summary = "Get Crypto with highest Normalized Range for specific day.")
